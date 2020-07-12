@@ -1,0 +1,118 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "ContosoUniversity.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/ContosoUniversity.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ContosoUniversity.Core.dll": {}
+        }
+      },
+      "ContosoUniversity.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ContosoUniversity.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ContosoUniversity.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ContosoUniversity.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ContosoUniversity.Core/1.0.0": {
+      "type": "project",
+      "path": "../ContosoUniversity.Core/ContosoUniversity.Core.csproj",
+      "msbuildProject": "../ContosoUniversity.Core/ContosoUniversity.Core.csproj"
+    },
+    "ContosoUniversity.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ContosoUniversity.Infrastructure/ContosoUniversity.Infrastructure.csproj",
+      "msbuildProject": "../ContosoUniversity.Infrastructure/ContosoUniversity.Infrastructure.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "ContosoUniversity.Core >= 1.0.0",
+      "ContosoUniversity.Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Car\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Api\\ContosoUniversity.Api.csproj",
+      "projectName": "ContosoUniversity.Api",
+      "projectPath": "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Api\\ContosoUniversity.Api.csproj",
+      "packagesPath": "C:\\Users\\Car\\.nuget\\packages\\",
+      "outputPath": "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Api\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Car\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Core\\ContosoUniversity.Core.csproj": {
+              "projectPath": "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Core\\ContosoUniversity.Core.csproj"
+            },
+            "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Infrastructure\\ContosoUniversity.Infrastructure.csproj": {
+              "projectPath": "C:\\Codebase\\Repos\\ContosoUniversityRestful\\ContosoUniversity.Infrastructure\\ContosoUniversity.Infrastructure.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
