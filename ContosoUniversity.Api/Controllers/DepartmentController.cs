@@ -1,4 +1,6 @@
-﻿using ContosoUniversity.Infrastructure.Repositories;
+﻿using System.Threading.Tasks;
+using ContosoUniversity.Core.Interfaces;
+using ContosoUniversity.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContosoUniversity.Api.Controllers
@@ -7,10 +9,18 @@ namespace ContosoUniversity.Api.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Getdepartments()
+        private readonly IDepartmentRepository _departmentRepository;
+
+        public DepartmentController(IDepartmentRepository departmentRepository)
         {
-            var departments = new DepartmentRepository().GetDepartments();
+            _departmentRepository = departmentRepository;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDepartments()
+        {
+            //var departments = new DepartmentRepository().GetDepartments();
+            var departments = await _departmentRepository.GetDepartments();
             return Ok(departments);
         }
     }

@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using ContosoUniversity.Core.Entities;
+using ContosoUniversity.Core.Interfaces;
+using ContosoUniversity.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContosoUniversity.Infrastructure.Repositories
 {
-    public class DepartmentRepository
+    public class DepartmentRepository : IDepartmentRepository
     {
-        public IEnumerable<Department> GetDepartments()
+        private readonly ContosoUniversityContext _context;
+
+        public DepartmentRepository(ContosoUniversityContext dbContext)
         {
-            var departments = Enumerable.Range(1, 3).Select(x => new Department
-            {
-                Id = x,
-                InstructorId = x * 2,
-                Name = $"Social Studies Dept0{x}",
-                Budget = 1000 + x*2,
-                StartDate = DateTime.Now,
-                RowVersion = new byte[x+1]
-            });
+            _context = dbContext;
+        }
+
+        public async Task<IEnumerable<Department>> GetDepartments()
+        {
+            var departments = await _context.Department.ToListAsync() as IEnumerable<Department>;
             return departments;
         }
     }
