@@ -97,10 +97,10 @@ GO
 CREATE TABLE [dbo].[Person](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[FirstName] [nvarchar](50) NOT NULL,
-	[HireDate] [datetime2](7) NULL,
 	[LastName] [nvarchar](50) NOT NULL,
-	[EnrollmentDate] [datetime2](7) NULL,
 	[Discriminator] [nvarchar](128) NOT NULL,
+	[HireDate] [datetime2](7) NULL,
+	[EnrollmentDate] [datetime2](7) NULL,
  CONSTRAINT [PK_Instructor] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

@@ -11,9 +11,9 @@ namespace ContosoUniversity.Infrastructure.Repositories
 {
     public class DepartmentMongoRepository : IDepartmentRepository
     {
-        private readonly ContosoUniversityContext _dbContext;
+        private readonly AcademicsDbContext _dbContext;
 
-        public DepartmentMongoRepository(ContosoUniversityContext dbContext)
+        public DepartmentMongoRepository(AcademicsDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -31,6 +31,21 @@ namespace ContosoUniversity.Infrastructure.Repositories
             });
             await Task.Delay(10);
             return departments;
+        }
+
+        public async Task<Department> GetDepartment(int id)
+        {
+            var department = new Department
+            {
+                DepartmentId = 9999,
+                InstructorId = 5,
+                Name = $"Mongo hongo Deptartment#9999",
+                Budget = 9999,
+                StartDate = DateTime.Now,
+                RowVersion = new byte[1]
+            };
+            await Task.Delay(10);
+            return department;
         }
     }
 }

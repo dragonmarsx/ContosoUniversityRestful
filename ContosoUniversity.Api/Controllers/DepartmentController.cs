@@ -23,5 +23,14 @@ namespace ContosoUniversity.Api.Controllers
             var departments = await _departmentRepository.GetDepartments();
             return Ok(departments);
         }
+
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDepartment(int id)
+        {
+            var department = await _departmentRepository.GetDepartment(id);
+            return Ok(department);
+        }
+
     }
 }

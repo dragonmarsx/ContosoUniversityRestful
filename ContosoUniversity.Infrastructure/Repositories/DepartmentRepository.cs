@@ -12,17 +12,23 @@ namespace ContosoUniversity.Infrastructure.Repositories
 {
     public class DepartmentRepository : IDepartmentRepository
     {
-        private readonly ContosoUniversityContext _context;
+        private readonly AcademicsDbContext _context;
 
-        public DepartmentRepository(ContosoUniversityContext dbContext)
+        public DepartmentRepository(AcademicsDbContext dbContext)
         {
             _context = dbContext;
         }
 
         public async Task<IEnumerable<Department>> GetDepartments()
         {
-            var departments = await _context.Department.ToListAsync() as IEnumerable<Department>;
+            var departments = await _context.Departments.ToListAsync() as IEnumerable<Department>;
             return departments;
+        }
+
+        public async Task<Department> GetDepartment(int id)
+        {
+            var department = await _context.Departments.FirstOrDefaultAsync( x => x.DepartmentId == id);
+            return department;
         }
     }
 }

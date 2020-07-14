@@ -30,8 +30,8 @@ namespace ContosoUniversity.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IDepartmentRepository, DepartmentMongoRepository>();
-            services.AddDbContext<ContosoUniversityContext>(options => 
+            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
+            services.AddDbContext<AcademicsDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("ContosoUniversity")));
         }
 

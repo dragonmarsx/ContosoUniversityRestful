@@ -7,8 +7,8 @@ namespace ContosoUniversity.Core.Entities
     {
         public Course()
         {
-            CourseAssignment = new HashSet<CourseAssignment>();
-            Enrollment = new HashSet<Enrollment>();
+            CourseAssignments = new HashSet<CourseAssignment>();
+            Enrollments = new HashSet<Enrollment>();
         }
 
         public int CourseId { get; set; }
@@ -17,7 +17,7 @@ namespace ContosoUniversity.Core.Entities
         public int DepartmentId { get; set; }
 
         public virtual Department Department { get; set; }
-        public virtual ICollection<CourseAssignment> CourseAssignment { get; set; }
-        public virtual ICollection<Enrollment> Enrollment { get; set; }
+        public virtual ICollection<CourseAssignment> CourseAssignments { get; set; }
+        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }

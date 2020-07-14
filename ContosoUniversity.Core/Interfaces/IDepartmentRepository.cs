@@ -9,5 +9,6 @@ namespace ContosoUniversity.Core.Interfaces
     public interface IDepartmentRepository
     {
         Task<IEnumerable<Department>> GetDepartments();
+        Task<Department> GetDepartment(int id);
     }
 }

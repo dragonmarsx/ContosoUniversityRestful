@@ -7,7 +7,7 @@ namespace ContosoUniversity.Core.Entities
     {
         public Department()
         {
-            Course = new HashSet<Course>();
+            Courses = new HashSet<Course>();
         }
 
         public int DepartmentId { get; set; }
@@ -18,6 +18,6 @@ namespace ContosoUniversity.Core.Entities
         public byte[] RowVersion { get; set; }
 
         public virtual Person Instructor { get; set; }
-        public virtual ICollection<Course> Course { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }
