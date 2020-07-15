@@ -47,5 +47,10 @@ namespace ContosoUniversity.Infrastructure.Repositories
             await Task.Delay(10);
             return department;
         }
+
+        public async Task InsertDepartment(Department department)
+        {
+            await Task.Delay(10);
+        }
     }
 }

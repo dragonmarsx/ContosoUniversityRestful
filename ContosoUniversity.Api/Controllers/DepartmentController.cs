@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ContosoUniversity.Core.Entities;
 using ContosoUniversity.Core.Interfaces;
 using ContosoUniversity.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -32,5 +33,24 @@ namespace ContosoUniversity.Api.Controllers
             return Ok(department);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Department(Department department)
+        {
+            await _departmentRepository.InsertDepartment(department);
+            return Ok(department);
+        }
+
     }
 }
+
+
+/*
+ * 
+Sample POST department json
+{
+  "budget": 450000.0000,
+  "instructorId": 104,
+  "name": "French",
+  "startDate": "0001-01-01T00:00:00"
+}
+ */

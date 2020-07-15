@@ -10,5 +10,6 @@ namespace ContosoUniversity.Core.Interfaces
     {
         Task<IEnumerable<Department>> GetDepartments();
         Task<Department> GetDepartment(int id);
+        Task InsertDepartment(Department department);
     }
 }

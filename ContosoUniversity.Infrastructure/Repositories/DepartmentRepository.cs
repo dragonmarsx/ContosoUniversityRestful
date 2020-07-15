@@ -30,5 +30,12 @@ namespace ContosoUniversity.Infrastructure.Repositories
             var department = await _context.Departments.FirstOrDefaultAsync( x => x.DepartmentId == id);
             return department;
         }
+
+        public async Task InsertDepartment(Department department)
+        {
+            _context.Departments.Add(department);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }
