@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ContosoUniversity.Core.Interfaces;
 using ContosoUniversity.Infrastructure.Data;
 using ContosoUniversity.Infrastructure.Repositories;
@@ -29,10 +30,16 @@ namespace ContosoUniversity.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options => 
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; //#1)         
+            });
             services.AddTransient<IDepartmentRepository, DepartmentRepository>();
-            services.AddDbContext<AcademicsDbContext>(options => 
-            options.UseSqlServer(Configuration.GetConnectionString("ContosoUniversity")));
+            services.AddDbContext<AcademicsDbContext>(options =>            
+                options.UseSqlServer(Configuration.GetConnectionString("ContosoUniversity"))
+            );
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());        //#2
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,3 +63,9 @@ namespace ContosoUniversity.Api
         }
     }
 }
+
+
+/* #1) Part 6 - min23: Avoid circular reference during serialization (nuget required).
+ * #2) Part 6 - min42: Obtain assemblies for objects to map (nuget required) 
+ * 
+ */

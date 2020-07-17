@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
+using ContosoUniversity.Core.Dtos;
 using ContosoUniversity.Core.Entities;
 using ContosoUniversity.Core.Interfaces;
 using ContosoUniversity.Infrastructure.Repositories;
@@ -11,10 +14,12 @@ namespace ContosoUniversity.Api.Controllers
     public class DepartmentController : ControllerBase
     {
         private readonly IDepartmentRepository _departmentRepository;
+        private readonly IMapper _mapper;
 
-        public DepartmentController(IDepartmentRepository departmentRepository)
+        public DepartmentController(IDepartmentRepository departmentRepository, IMapper mapper)
         {
             _departmentRepository = departmentRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -22,7 +27,8 @@ namespace ContosoUniversity.Api.Controllers
         {
             //var departments = new DepartmentRepository().GetDepartments();
             var departments = await _departmentRepository.GetDepartments();
-            return Ok(departments);
+            var departmentsDto = _mapper.Map <IEnumerable<DepartmentDto>>(departments);
+            return Ok(departmentsDto);
         }
 
 
@@ -30,14 +36,17 @@ namespace ContosoUniversity.Api.Controllers
         public async Task<IActionResult> GetDepartment(int id)
         {
             var department = await _departmentRepository.GetDepartment(id);
-            return Ok(department);
+            var departmentDto = _mapper.Map<DepartmentDto>(department);
+            return Ok(departmentDto);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Department(Department department)
+        public async Task<IActionResult> Department(DepartmentDto departmentDto)
         {
+            var department = _mapper.Map<Department>(departmentDto);
+
             await _departmentRepository.InsertDepartment(department);
-            return Ok(department);
+            return Ok(departmentDto);
         }
 
     }
