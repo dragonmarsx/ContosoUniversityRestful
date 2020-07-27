@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContosoUniversity.Api", "ContosoUniversity.Api\ContosoUniversity.Api.csproj", "{B020F7DE-EB75-4D91-8135-AE22C634CCCD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C0933DCF-8539-433D-B559-CDE39520AB26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A3C7A4B7-A8DE-4450-A825-3680F4C23A37} = {C0933DCF-8539-433D-B559-CDE39520AB26}
+		{60BF232A-F6DF-4F8D-988E-3AA4572AC5A8} = {C0933DCF-8539-433D-B559-CDE39520AB26}
+		{B020F7DE-EB75-4D91-8135-AE22C634CCCD} = {C0933DCF-8539-433D-B559-CDE39520AB26}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36D91936-4646-4391-8AD0-2174EA886E4E}

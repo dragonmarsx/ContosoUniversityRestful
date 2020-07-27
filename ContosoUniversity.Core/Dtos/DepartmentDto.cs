@@ -10,7 +10,7 @@ namespace ContosoUniversity.Core.Dtos
         public decimal Budget { get; set; }
         public int? InstructorId { get; set; }
         public string Name { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public byte[] RowVersion { get; set; }
     }
 }
